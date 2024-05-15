@@ -25,7 +25,7 @@ jobs:
       run: cmake --build _build
 
     - name: Build tests
-      run: cmake --build ./build --target test
+      run: cmake --build _build --target test
 
     - name: Upload executable
       uses: actions/upload-artifact@v2
