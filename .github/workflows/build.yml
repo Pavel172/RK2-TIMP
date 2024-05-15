@@ -16,10 +16,13 @@ jobs:
       run: sudo apt-get install -y cmake gcc g++
 
     - name: Configure CMake
-      run: cmake -H. -B _build
+      run: cmake -H. -B _build -DBUILD_TESTS=ON
 
     - name: Build
       run: cmake --build _build
+
+    - name: Build tests
+      run: cmake --build ./build --target test
 
     - name: Upload executable
       uses: actions/upload-artifact@v2
