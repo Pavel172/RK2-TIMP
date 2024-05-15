@@ -129,6 +129,43 @@ RK2-TIMP/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RK2-TIMP.dir/build.make CMakeFiles/RK2-TIMP.dir/build
 .PHONY : RK2-TIMP/fast
 
+#=============================================================================
+# Target rules for targets named demo
+
+# Build rule for target.
+demo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 demo
+.PHONY : demo
+
+# fast build rule for target.
+demo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
+.PHONY : demo/fast
+
+examples/demo.o: examples/demo.cpp.o
+.PHONY : examples/demo.o
+
+# target to build an object file
+examples/demo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/examples/demo.cpp.o
+.PHONY : examples/demo.cpp.o
+
+examples/demo.i: examples/demo.cpp.i
+.PHONY : examples/demo.i
+
+# target to preprocess a source file
+examples/demo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/examples/demo.cpp.i
+.PHONY : examples/demo.cpp.i
+
+examples/demo.s: examples/demo.cpp.s
+.PHONY : examples/demo.s
+
+# target to generate assembly for a file
+examples/demo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/examples/demo.cpp.s
+.PHONY : examples/demo.cpp.s
+
 sources/Mediator.o: sources/Mediator.cpp.o
 .PHONY : sources/Mediator.o
 
@@ -162,6 +199,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... RK2-TIMP"
+	@echo "... demo"
+	@echo "... examples/demo.o"
+	@echo "... examples/demo.i"
+	@echo "... examples/demo.s"
 	@echo "... sources/Mediator.o"
 	@echo "... sources/Mediator.i"
 	@echo "... sources/Mediator.s"
