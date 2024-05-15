@@ -15,6 +15,9 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get install -y cmake gcc g++
 
+    - name: adding GTests
+      run: git submodule update --init
+
     - name: Configure CMake
       run: cmake -H. -B _build -DBUILD_TESTS=ON
 
