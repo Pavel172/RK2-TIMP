@@ -53,3 +53,5 @@ if(BUILD_TESTS)
     add_test(NAME ${TEST_NAME} COMMAND check)
   endforeach()
 endif()
+
+include(CPackConfig.cmake)
