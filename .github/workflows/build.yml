@@ -1,16 +1,35 @@
 name: CMake Build
-on:
- push:
+
+on: push
+
 jobs:
- build-project:
- name: Build Project
+  build:
     runs-on: ubuntu-latest
+
     steps:
- - name: Checkout
-        uses: actions/checkout@v4.1.2
+    - uses: actions/checkout@v2
 
- - name: Configure and Build Project
-        uses: threeal/cmake-action@main
+    - name: Create Build Directory
+      run: cmake -E make_directory ${{github.workspace}}/build
 
- - name: Upload executable
-        uses: actions/upload-artifact@v2
+    - name: Install dependencies
+      run: sudo apt-get install -y cmake gcc g++
+
+    - name: Configure CMake
+      run: cmake -S . -B ./build
+
+    - name: Build
+      run: cmake --build ./build
+
+    - name: Create Artifact
+      run: |
+        mkdir release
+        cp build/Main.html release/index.html
+        cp build/Main.js release/Main.js
+        cp build/Main.wasm release/Main.wasm
+
+    - name: Publish Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: web-release
+        path: release
