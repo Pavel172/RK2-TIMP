@@ -14,7 +14,11 @@ jobs:
 
     - name: Build
       run: |
-        mkdir build
         cd build
         cmake ..
         make
+    - name: Upload executable
+      uses: actions/upload-artifact@v2
+      with:
+        name: executable
+        path: build/executable
