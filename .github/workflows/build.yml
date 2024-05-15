@@ -21,15 +21,8 @@ jobs:
     - name: Build
       run: cmake --build _build
 
-    - name: Create Artifact
-      run: |
-        mkdir release
-        cp build/Main.html release/index.html
-        cp build/Main.js release/Main.js
-        cp build/Main.wasm release/Main.wasm
-
-    - name: Publish Artifact
+    - name: Upload executable
       uses: actions/upload-artifact@v2
       with:
-        name: web-release
-        path: release
+        name: executable
+        path: build/executable
